@@ -11,8 +11,8 @@ function judgeNumber(first, second, third, number) {
         if (number % next.specialNumber === 0) {
             return prv + next.value;
         }
-
         return prv;
+
     }, '');
 
     if (!result) {
