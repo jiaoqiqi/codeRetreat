@@ -27,5 +27,6 @@ function firstNumberContent(first, number) {
 }
 
 module.exports = {
-    judgeNumber
+    judgeNumber,
+    firstNumberContent
 };

@@ -21,4 +21,9 @@ describe('number off', () => {
         expect(main.judgeNumber(first,second,third,70)).toEqual('BuzzWhizz');
         expect(main.judgeNumber(first,second,third,105)).toEqual('FizzBuzzWhizz');
     });
+
+    it('content first special number ', () => {
+        expect(main.firstNumberContent(first,13)).toEqual(true);
+        expect(main.firstNumberContent(first,11)).toEqual(false);
+    })
 });
