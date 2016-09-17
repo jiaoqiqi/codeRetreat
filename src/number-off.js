@@ -1,23 +1,29 @@
-function judgeNumber(number) {
-    const numbers = number.toString().split('');
-    const includeFirstNumber = numbers.find(n => n === '3');
-    if (includeFirstNumber) {
+function judgeNumber(first, second, third, number) {
+    const numberOffs = [{value: 'Fizz', specialNumber: first},
+        {value: 'Buzz', specialNumber: second},
+        {value: 'Whizz', specialNumber: third}];
+
+    if (firstNumberContent(first, number)) {
         return 'Fizz';
     }
-    let result = '';
-    if (number % 3 === 0) {
-        result += 'Fizz';
-    }
-    if (number % 5 === 0) {
-        result += 'Buzz';
-    }
-    if (number % 7 === 0) {
-        result += 'Whizz';
-    }
-    if (result === '') {
+
+    let result = numberOffs.reduce((prv, next) => {
+        if (number % next.specialNumber === 0) {
+            return prv + next.value;
+        }
+
+        return prv;
+    }, '');
+
+    if (!result) {
         result = number;
     }
     return result;
+}
+
+function firstNumberContent(first, number) {
+    const numbers = number.toString().split(`${first}`);
+    return numbers.length != 1;
 }
 
 module.exports = {
