@@ -2,14 +2,23 @@
 
 const main = require('../src/number-off');
 
-describe('numberOff', () => {
+describe('number off', () => {
+    let first, second, third;
+   beforeEach(() => {
+       first = 3;
+       second = 5;
+       third = 7;
+   });
 
-    it(' it can make one number multiple ', () => {
-        const numbers = [1, 2, 3, 5, 7,30, 13, 23, 35,3, 5, 7, 15, 21, 35, 105];
-        const expectOutputs = [1, 2, 'Fizz', 'Buzz', 'Whizz','Fizz','Fizz','Fizz','Fizz','Fizz', 'Buzz', 'Whizz', 'FizzBuzz', 'FizzWhizz', 'Fizz', 'FizzBuzzWhizz'];
-        for (let i = 0; i < numbers.length; i++) {
-            const output = main.judgeNumber(numbers[i]);
-            expect(output).toEqual(expectOutputs[i]);
-        }
+    it ('when a number is special numbers multiple', () => {
+        expect(main.judgeNumber(first,second,third,1)).toEqual(1);
+        expect(main.judgeNumber(first,second,third,6)).toEqual('Fizz');
+        expect(main.judgeNumber(first,second,third,35)).toEqual('Fizz');
+        expect(main.judgeNumber(first,second,third,15)).toEqual('FizzBuzz');
+        expect(main.judgeNumber(first,second,third,21)).toEqual('FizzWhizz');
+        expect(main.judgeNumber(first,second,third,5)).toEqual('Buzz');
+        expect(main.judgeNumber(first,second,third,7)).toEqual('Whizz');
+        expect(main.judgeNumber(first,second,third,70)).toEqual('BuzzWhizz');
+        expect(main.judgeNumber(first,second,third,105)).toEqual('FizzBuzzWhizz');
     });
 });
